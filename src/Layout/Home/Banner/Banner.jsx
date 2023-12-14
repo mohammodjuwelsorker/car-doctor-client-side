@@ -44,7 +44,7 @@ const Banner = () => {
                </div>
             </div>
             {/* button here  */}
-            <div className="absolute flex justify-end  bottom-7 right-8 ">
+            <div className="absolute flex justify-end space-x-5  bottom-7 right-8 ">
                <a href="#slide6" className="text-lg text-white flex items-center justify-center w-12 h-12 rounded-full  bg-[#FF3811]">❮</a> 
                <a href="#slide3" className="text-lg text-white flex items-center justify-center w-12 h-12 rounded-full  bg-[#FF3811]">❯</a>
             </div>
@@ -64,7 +64,7 @@ const Banner = () => {
                </div>
             </div>
             {/* button here  */}
-            <div className="absolute flex justify-end  bottom-7 right-8 ">
+            <div className="absolute flex justify-end space-x-5  bottom-7 right-8 ">
                <a href="#slide5" className="text-lg text-white flex items-center justify-center w-12 h-12 rounded-full  bg-[#FF3811]">❮</a> 
                <a href="#slide4" className="text-lg text-white flex items-center justify-center w-12 h-12 rounded-full  bg-[#FF3811]">❯</a>
             </div>
@@ -84,7 +84,7 @@ const Banner = () => {
                </div>
             </div>
             {/* button here  */}
-            <div className="absolute flex justify-end  bottom-7 right-8 ">
+            <div className="absolute flex justify-end space-x-5  bottom-7 right-8 ">
                <a href="#slide4" className="text-lg text-white flex items-center justify-center w-12 h-12 rounded-full  bg-[#FF3811]">❮</a> 
                <a href="#slide5" className="text-lg text-white flex items-center justify-center w-12 h-12 rounded-full  bg-[#FF3811]">❯</a>
             </div>
@@ -104,7 +104,7 @@ const Banner = () => {
                </div>
             </div>
             {/* button here  */}
-            <div className="absolute flex justify-end  bottom-7 right-8 ">
+            <div className="absolute flex justify-end space-x-5  bottom-7 right-8 ">
                <a href="#slide3" className="text-lg text-white flex items-center justify-center w-12 h-12 rounded-full  bg-[#FF3811]">❮</a> 
                <a href="#slide6" className="text-lg text-white flex items-center justify-center w-12 h-12 rounded-full  bg-[#FF3811]">❯</a>
             </div>
@@ -124,7 +124,7 @@ const Banner = () => {
                </div>
             </div>
             {/* button here  */}
-            <div className="absolute flex justify-end  bottom-7 right-8 ">
+            <div className="absolute flex justify-end space-x-5  bottom-7 right-8 ">
                <a href="#slide2" className="text-lg text-white flex items-center justify-center w-12 h-12 rounded-full  bg-[#FF3811]">❮</a> 
                <a href="#slide1" className="text-lg text-white flex items-center justify-center w-12 h-12 rounded-full  bg-[#FF3811]">❯</a>
             </div>
