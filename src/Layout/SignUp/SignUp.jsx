@@ -1,13 +1,16 @@
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import img from '../../assets/images/login/login.svg'
 import { FaFacebookF, FaGoogle } from "react-icons/fa";
 import { FaLinkedinIn } from "react-icons/fa6";
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
+import { FiEye } from "react-icons/fi";
+import { FaRegEyeSlash } from "react-icons/fa";
 
 const SignUp = () => {
 
    const {createUser, profileUpdate} = useContext(AuthContext)
+   const [showPassword, setShowPassword] = useState(!true)
 
 // sign up function 
    const handleSignUp = e => {
@@ -36,7 +39,7 @@ const SignUp = () => {
          </div>
          <div className='w-1/2 border-2 border-[#D0D0D0] rounded-xl p-16 space-y-7'>
             <form onSubmit={handleSignUp} className="space-y-7">
-               <h1 className='text-4xl text-[#444] text-center font-semibold mb-8 lg:mb-12'>Login</h1>
+               <h1 className='text-4xl text-[#444] text-center font-semibold mb-8 lg:mb-12'>Sign Up</h1>
                <div className="form-control space-y-3 ">
                   <label className="label">
                      <span className="text-lg text-[#444] font-semibold">Name</span>
@@ -53,7 +56,13 @@ const SignUp = () => {
                   <label className="label">
                      <span className="text-lg text-[#444] font-semibold">Password</span>
                   </label>
-                  <input type="password" name='pass' placeholder="password" className="input input-bordered" required />
+                  <div className='w-full relative'>
+                        <input type={showPassword ? "password" : "text"} name='pass' placeholder="password" className="input input-bordered w-full" required />
+                        <button type='button' className='absolute top-3 right-5 text-2xl font-semibold'
+                        onClick={() => setShowPassword(!showPassword)}>{
+                           showPassword ? <FiEye/> : <FaRegEyeSlash/>
+                        }</button>
+                     </div>
                </div>
                <div className="form-control mt-6">
                   <button type='submit' className="py-4 text-xl text-white w-full bg-[#FF3811] font-semibold rounded-xl">Sign Up</button>

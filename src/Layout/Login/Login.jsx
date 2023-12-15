@@ -1,14 +1,17 @@
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import img from '../../assets/images/login/login.svg'
 import { FaFacebookF, FaGoogle } from "react-icons/fa";
 import { FaLinkedinIn } from "react-icons/fa6";
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
+import { FiEye } from "react-icons/fi";
+import { FaRegEyeSlash } from "react-icons/fa";
 
 
 const Login = () => {
 
    const {login, googleLogin} = useContext(AuthContext)
+   const [showPassword, setShowPassword] = useState(!true)
 
    // login function 
    const handleLogin = e => {
@@ -37,6 +40,8 @@ const Login = () => {
          .catch(err => console.log(err))
    }
 
+   console.log(showPassword)
+
    return (
       <div className="flex items-center lg:space-x-16 pb-12 lg:pb-16">
           <div className="w-1/2">
@@ -55,7 +60,13 @@ const Login = () => {
                      <label className="label">
                         <span className="text-lg text-[#444] font-semibold">Password</span>
                      </label>
-                     <input type="password" name='pass' placeholder="password" className="input input-bordered" required />
+                     <div className='w-full relative'>
+                        <input type={showPassword ? "password" : "text"} name='pass' placeholder="password" className="input input-bordered w-full" required />
+                        <button type='button' className='absolute top-3 right-5 text-2xl font-semibold'
+                        onClick={() => setShowPassword(!showPassword)}>{
+                           showPassword ? <FiEye/> : <FaRegEyeSlash/>
+                        }</button>
+                     </div>
                   </div>
                   <div className="form-control mt-6">
                      <button type='submit' className="py-4 text-xl text-white w-full bg-[#FF3811] font-semibold rounded-xl">Sign In</button>
