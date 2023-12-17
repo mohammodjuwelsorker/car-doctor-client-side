@@ -1,4 +1,4 @@
-import { useState } from "react";
+import {useState } from "react";
 import AboutUs from "./AboutUs/AboutUs";
 import Banner from "./Banner/Banner";
 import HeaderTitle from "./HeaderTitle/HeaderTitle";
@@ -7,9 +7,10 @@ import { useEffect } from "react";
 
 const Home = () => {
    const [services, setServices] = useState([])
+   
 
    useEffect(() => {
-      fetch('/services.json')
+      fetch('http://localhost:5000/services')
          .then(res => res.json())
          .then(data => {
             console.log(data)
@@ -30,7 +31,7 @@ const Home = () => {
             {/* card services  */}
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 pb-8 md:pb-12">
                {
-                  services.map(service  => <OuServices key={service._id} service={service} />)
+                  services.map(service  => <OuServices key={service._id} service={service}  />)
                }
             </div>
             {/* button  */}

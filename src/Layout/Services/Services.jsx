@@ -1,8 +1,12 @@
+import Banner from "../Shared/Banner/Banner";
 
 const Services = () => {
    return (
       <div>
-         <h1>this is services</h1>
+         <div>
+            {/* banner  */}
+            <Banner text='Add New Service'></Banner>
+         </div>
       </div>
    );
 };

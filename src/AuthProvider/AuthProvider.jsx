@@ -45,6 +45,7 @@ const AuthProvider = ({children}) => {
 
       const unSubscribe = onAuthStateChanged(auth, (user) => {
          setUser(user)
+         setLoading(false)
          if(user) {
             console.log('user is have this page')
          }
@@ -66,7 +67,7 @@ const AuthProvider = ({children}) => {
       createUser,
       login,
       googleLogin,
-      profileUpdate
+      profileUpdate,
    }
 
    return (
