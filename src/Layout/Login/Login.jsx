@@ -2,14 +2,14 @@ import { useContext, useState } from 'react';
 import img from '../../assets/images/login/login.svg'
 import { FaFacebookF, FaGoogle } from "react-icons/fa";
 import { FaLinkedinIn } from "react-icons/fa6";
-import { Link } from 'react-router-dom';
+import { Link} from 'react-router-dom';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 import { FiEye } from "react-icons/fi";
 import { FaRegEyeSlash } from "react-icons/fa";
 
 
 const Login = () => {
-
+   
    const {login, googleLogin} = useContext(AuthContext)
    const [showPassword, setShowPassword] = useState(!true)
 

@@ -6,7 +6,7 @@ import { AuthContext } from './../../AuthProvider/AuthProvider';
 
 const CheckOut = () => {
    const services = useLoaderData()
-   const {price, title, _id} = services;
+   const {price, title, img, _id} = services;
    const {user} = useContext(AuthContext)
 
 
@@ -31,12 +31,13 @@ const CheckOut = () => {
          phone: yourPhone,
          email: yourEmail,
          price: price,
+         img,
          date: date,
          description: textArea
       }
 
       // create the data the post server side from mongodb 
-      fetch('http://localhost:5000/booking', {
+      fetch('http://localhost:5000/bookings', {
          method: "POST",
          headers: {
             'content-type': 'application/json'

@@ -2,8 +2,22 @@ import { Link, NavLink } from "react-router-dom";
 import { CiSearch } from "react-icons/ci";
 import { AiOutlineShopping } from "react-icons/ai";
 import logo from '../../assets/logo.svg'
+import { useContext } from "react";
+import { AuthContext } from "../../AuthProvider/AuthProvider";
 
 const Navbar = () => {
+
+   const {user, logOut} = useContext(AuthContext)
+
+   const handleSignOut = () => {
+      console.log('sign out here')
+      // log out function call in here 
+      logOut()
+         .then(()=> {
+            console.log('yes successfully log out?')
+         })
+         .catch(err => console.log(err))
+   }
 
    const navItems = <>
       <li><NavLink to='/'>Home</NavLink></li>
@@ -11,6 +25,16 @@ const Navbar = () => {
       <li><NavLink to='/services'>Service</NavLink></li>
       <li><NavLink to='/blog'>Blog</NavLink></li>
       <li><NavLink to='/contact'>Contact</NavLink></li>
+      {
+         user?.email ? 
+            <>
+               <li><Link to='/bookings'>My Bookings</Link></li>
+               <li><button onClick={handleSignOut}>SignOut</button></li>
+            </>
+
+            :
+            <li><Link to='/login'>Login</Link></li>
+      }
    </>
    return (
       <div className="navbar bg-base-100 py-10">
