@@ -2,6 +2,7 @@ import { useContext, useEffect, useState, } from "react";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import BookingRow from "./BookingRow/BookingRow";
 import Swal from 'sweetalert2';
+import axios from "axios";
 
 const Bookings = () => {
    const {user} = useContext(AuthContext)
@@ -12,12 +13,16 @@ const Bookings = () => {
    const url = `http://localhost:5000/bookings?email=${email}`
    // get the brawer data fetch 
    useEffect(()=> {
-      fetch(url)
-         .then(res => res.json())
-         .then(data => {
-            console.log(data)
-            setBookings(data)
+      axios.get(url, )
+         .then(res => {
+            console.log(res.data)
+            setBookings(res.data)
          })
+         // .then(res => res.json())
+         // .then(data => {
+         //    console.log(data)
+         //    setBookings(data)
+         // })
    },[url])
 
 

@@ -11,6 +11,10 @@ import SignUp from "../Layout/SignUp/SignUp";
 import CheckOut from "../Layout/CheckOut/CheckOut";
 import Bookings from "../Layout/Bookings/Bookings";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import axios from "axios";
+
+// default withCredentials all route use 
+axios.defaults.withCredentials = true;
 
  const router = createBrowserRouter([
    {
@@ -48,7 +52,7 @@ import PrivateRoute from "../PrivateRoute/PrivateRoute";
       },
       {
          path:'/checkOut/:id',
-         element:<CheckOut></CheckOut>,
+         element:<PrivateRoute><CheckOut/></PrivateRoute>,
          loader: ({params}) => fetch(`http://localhost:5000/services/${params.id}`)
       },
       {

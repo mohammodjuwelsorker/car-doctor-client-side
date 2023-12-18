@@ -2,16 +2,20 @@ import { useContext, useState } from 'react';
 import img from '../../assets/images/login/login.svg'
 import { FaFacebookF, FaGoogle } from "react-icons/fa";
 import { FaLinkedinIn } from "react-icons/fa6";
-import { Link} from 'react-router-dom';
+import { Link, useLocation, useNavigate} from 'react-router-dom';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 import { FiEye } from "react-icons/fi";
 import { FaRegEyeSlash } from "react-icons/fa";
+import axios from 'axios';
 
 
 const Login = () => {
    
    const {login, googleLogin} = useContext(AuthContext)
    const [showPassword, setShowPassword] = useState(!true)
+   const location = useLocation()
+   const navigate = useNavigate()
+   // console.log(location.state)
 
    // login function 
    const handleLogin = e => {
@@ -25,6 +29,17 @@ const Login = () => {
       login(email, pass)
          .then(result => {
             console.log( "user Login",result.user)
+
+            const user = {email}
+            axios.post('http://localhost:5000/jwt', user, {withCredentials: true})
+            .then(res => {
+               console.log(res.data)
+               if(res.data) {
+                  // navigate here 
+                  navigate(location?.state ? location?.state : '/')
+               }
+            })
+
          })
          .catch(err => console.log(err))
    }
@@ -34,8 +49,11 @@ const Login = () => {
       console.log('click')
 
       socialLogin()
-         .then(user => {
-            console.log("Social login: ", user.user)
+         .then(result => {
+            console.log("Social login: ", result.user)
+            
+            // navigate here 
+            navigate(location?.state ? location?.state : '/')
          })
          .catch(err => console.log(err))
    }
